@@ -1,0 +1,15 @@
+.flex{
+    display: flex;
+}
+
+.flexColumn{
+    flex-direction: column;
+}
+
+.flexRow{
+    flex-direction: row;
+}
+
+#main{
+    padding-left:3rem;
+}

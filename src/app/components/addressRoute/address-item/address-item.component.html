@@ -1,0 +1,28 @@
+<div *ngIf="address.id>0">
+    <div>
+      <h2>Adresse {{ address.city }}</h2>
+    </div>
+    <div>
+      <div>
+        <p>Street</p>
+        <p>{{ address.street }}</p>
+        <p>Zip code</p>
+        <p>{{ address.zip_code }}</p>
+      </div>
+      <div>
+        <p>City</p>
+        <p>{{ address.city }}</p>
+        <p>Country</p>
+        <p>{{ address.country }}</p>
+      </div>
+      <div>
+        <p>Additionnal info</p>
+        <p>{{ address.additionnalInfo }}</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button (click)="removeAddress(address)">
+      Delete
+    </button>
+  </div>

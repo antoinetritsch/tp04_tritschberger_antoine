@@ -1,0 +1,7 @@
+<div *ngIf="products$ | async as products">
+    <h2><span *ngIf="productsLength$ | async as productsLength">{{ productsLength }}</span> articles dans le panier</h2>
+    <div *ngFor="let product of products">
+        <app-cart-item [product]="product"></app-cart-item>
+    </div>
+  </div>
+<button (click)="DeleteAll()">Tout supprimer</button>

@@ -1,0 +1,10 @@
+    <form [formGroup]="searchbarForm" style="display: flex;flex-direction: row;">
+      <label>Rechercher un produit : </label>
+        <input
+          type="text"
+          id="searchbar"
+          formControlName="research"
+          (input)="handleResearch()"
+          placeholder="Rechercher un produit"
+        />
+    </form>

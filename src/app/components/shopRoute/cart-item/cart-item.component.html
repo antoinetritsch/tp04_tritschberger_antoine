@@ -1,0 +1,6 @@
+<div *ngIf="product.id >0 ">
+    <h3>{{ product.product.name }} {{ product.product.price }}€</h3>
+    <a [routerLink] = "['/product/product',product.product.id]" >Voir le détail</a>
+    <button (click)="removeFromCart()">Supprimer du panier</button>
+</div>
+  

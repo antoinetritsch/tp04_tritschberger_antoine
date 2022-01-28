@@ -1,0 +1,47 @@
+<div>
+    <h2>Création d'une adresse</h2>
+    <form [formGroup]="addressesForm" (ngSubmit)="handleSubmit()">
+      <div>
+        <h2>Adresse</h2>
+        <div>
+          <label for="street">Rue <span>*</span></label>
+          <input id="street" type="text" formControlName="street" />
+        </div>
+        <div>
+          <label for="zip_code">Code postal <span>*</span></label>
+          <input id="zip_code" type="number" formControlName="zip_code" />
+        </div>
+        <div>
+          <label for="city">Ville <span>*</span></label>
+          <input id="city" type="text" formControlName="city" />
+        </div>
+        <div>
+          <label for="additionnalInfo">Information additionnel <span>*</span></label>
+          <input id="additionnalInfo" type="text" formControlName="additionnalInfo" />
+        </div>
+        <div>
+          <label for="country">Pays <span>*</span></label>
+          <select id="country" formControlName="country">
+            <option *ngFor="let country of countries" [ngValue]="country">
+              {{ country }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <button type="submit">Créer</button>
+    </form>
+  </div>
+  
+  <div>
+    <div *ngIf="addressesLength$ | async as addressesLength">
+      <h2>
+        Liste de vos adresses ({{ addressesLength }})
+      </h2>
+      <div *ngIf="addresses$ | async as addresses">
+        <div *ngFor="let address of addresses">
+          <app-address-item [address]="address"></app-address-item>
+        </div>
+      </div>
+    </div>
+  </div>
+  

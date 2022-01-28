@@ -1,0 +1,9 @@
+<div *ngIf="product.id != ''">
+    <h3>{{ product.name }} {{ product.price }}€</h3>
+    <p>{{ product.description }}</p>
+    <button (click)="AddToCart()">Ajouter au panier</button>
+    <a [routerLink] = "['/product/shop']" >Retour</a>
+</div>
+<div *ngIf="error">
+    Erreur
+</div>
