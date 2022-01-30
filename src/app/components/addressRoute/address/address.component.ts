@@ -40,7 +40,7 @@ export class AddressComponent {
       zip_code: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      additionnalInfo : ['', Validators.required],
+      additionnalInfo : ['',Validators.nullValidator],
     });
   }
 
