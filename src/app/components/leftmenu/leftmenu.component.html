@@ -1,8 +1,8 @@
 <div>
     <ul>
-        <li><a [routerLink] = "['/home']" >Home</a></li>
-        <li><a [routerLink] = "['/product/shop']" >Boutique</a></li>
-        <li><a [routerLink] = "['/product/cart']" >Panier (<span *ngIf="productsLength$ | async as productsLength">{{productsLength}}</span>)</a></li>
-        <li><a [routerLink] = "['/address/addresses']" >Adresse</a></li>
+        <li [ngClass]="currentRoute=='/home' ? 'selected' : ''" ><a [routerLink] = "['/home']" >Home</a></li>
+        <li [ngClass]="currentRoute=='/product/shop' ? 'selected' : ''"><a [routerLink] = "['/product/shop']" >Boutique</a></li>
+        <li [ngClass]="currentRoute=='/product/cart' ? 'selected' : ''"><a [routerLink] = "['/product/cart']" >Panier (<span *ngIf="productsLength$ | async as productsLength">{{productsLength}}</span><span *ngIf="!(productsLength$ | async)">0</span>)</a></li>
+        <li [ngClass]="currentRoute=='/address/addresses' ? 'selected' : ''"><a [routerLink] = "['/address/addresses']" >Adresse</a></li>
     </ul>
 </div>

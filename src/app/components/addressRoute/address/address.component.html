@@ -1,47 +1,42 @@
 <div>
-    <h2>Création d'une adresse</h2>
-    <form [formGroup]="addressesForm" (ngSubmit)="handleSubmit()">
-      <div>
-        <h2>Adresse</h2>
-        <div>
-          <label for="street">Rue <span>*</span></label>
-          <input id="street" type="text" formControlName="street" />
-        </div>
-        <div>
-          <label for="zip_code">Code postal <span>*</span></label>
-          <input id="zip_code" type="number" formControlName="zip_code" />
-        </div>
-        <div>
-          <label for="city">Ville <span>*</span></label>
-          <input id="city" type="text" formControlName="city" />
-        </div>
-        <div>
-          <label for="additionnalInfo">Information additionnel <span>*</span></label>
-          <input id="additionnalInfo" type="text" formControlName="additionnalInfo" />
-        </div>
-        <div>
-          <label for="country">Pays <span>*</span></label>
-          <select id="country" formControlName="country">
-            <option *ngFor="let country of countries" [ngValue]="country">
-              {{ country }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <button type="submit">Créer</button>
-    </form>
-  </div>
-  
-  <div>
-    <div *ngIf="addressesLength$ | async as addressesLength">
-      <h2>
-        Liste de vos adresses ({{ addressesLength }})
-      </h2>
-      <div *ngIf="addresses$ | async as addresses">
-        <div *ngFor="let address of addresses">
-          <app-address-item [address]="address"></app-address-item>
-        </div>
+  <h2>Création d'une adresse</h2>
+  <form [formGroup]="addressesForm" (ngSubmit)="handleSubmit()">
+    <ul class="form-style-1">
+      <li><label for="street">Rue <span class="required">*</span></label><input class="field-long" id="street"
+          type="text" formControlName="street" placeholder="Rue" /></li>
+      <li>
+        <label for="zip_code"></label>
+        <label for="city">Ville <span class="required">*</span></label>
+        <input placeholder="Code postal" id="zip_code" class="field-divided" type="number" formControlName="zip_code" />
+        <input id="city" placeholder="Ville" class="field-divided" type="text" formControlName="city" />
+      </li>
+      <li>
+        <label for="country">Pays <span class="required">*</span></label>
+        <select class="field-select" id="country" formControlName="country">
+          <option *ngFor="let country of countries" [ngValue]="country">
+            {{ country }}
+          </option>
+        </select>
+      </li>
+      <li>
+        <label for="additionnalInfo">Informations additionnelles <span class="required">*</span></label>
+        <textarea placeholder="Informations additionnelles" id="additionnalInfo" formControlName="additionnalInfo" class="field-long field-textarea"></textarea>
+      </li>
+      <li>
+        <button class="btnStyle" type="submit">Créer</button>
+      </li>
+    </ul>
+  </form>
+</div>
+
+<div>
+  <h2 style="margin-bottom: 15px;" *ngIf="!(addressesLength$ | async)">Pas d'adresses enregistrées</h2>
+  <div *ngIf="addressesLength$ | async as addressesLength">
+    <h2 style="margin-bottom: 15px;">Vos adresses ({{ addressesLength }})</h2>
+    <div *ngIf="addresses$ | async as addresses">
+      <div *ngFor="let address of addresses">
+        <app-address-item [address]="address"></app-address-item>
       </div>
     </div>
   </div>
-  
+</div>

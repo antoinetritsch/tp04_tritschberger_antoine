@@ -1,6 +1,8 @@
-<div>
-    <div>
-        <h1 routerLink="/">TP04 - Angular</h1>
+
+    <div class="flex">
+        <h3>TP04 - Shop</h3>
+        <h1 *ngIf="currentRoute=='/' || currentRoute=='/home'">Home</h1>
+        <h1 *ngIf="currentRoute=='/product/shop'">Boutique</h1>
+        <h1 *ngIf="currentRoute=='/product/cart'">Mon panier</h1>
+        <h1 *ngIf="currentRoute=='/address/addresses'">Mes adresses</h1>
     </div>   
-  </div>
-  

@@ -9,13 +9,4 @@ import { Address } from 'src/app/shared/models/address';
 })
 export class AppComponent {
   title = 'tp04_tritschberger_antoine';
-
-
-  getLocalAddresses(): Address[] {
-    const localAddresses = localStorage.getItem('addresses');
-    if (localAddresses) {
-      return JSON.parse(localAddresses);
-    }
-    return [];
-  }
 }

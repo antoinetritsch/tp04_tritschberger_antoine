@@ -74,14 +74,6 @@ export class DataState {
   }
 
 
-  updateLocalCart(_products: ProductOwn[]) {
-    localStorage.setItem('cart', JSON.stringify(_products));
-  }
-
-  updateLocalCartAddress(_addresses: Address[]) {
-    localStorage.setItem('addresses', JSON.stringify(_addresses));
-  }
-
   @Action(CreateProduct)
   add(
     { getState, patchState }: StateContext<DataStateModel>,
@@ -94,8 +86,6 @@ export class DataState {
     patchState({
       products: [...state.products, po],
     });
-    // Localstorage
-    this.updateLocalCart([...state.products, po]);
   }
 
   @Action(DeleteProduct)
@@ -108,10 +98,6 @@ export class DataState {
     patchState({
       products: state.products.filter((product) => product.id !== payload.id),
     });
-    // Localstorage
-    this.updateLocalCart(
-      state.products.filter((product) => product.id !== payload.id)
-    );
   }
 
 
@@ -122,9 +108,6 @@ export class DataState {
     patchState({
       products: [],
     });
-
-    // Localstorage
-    this.updateLocalCart([]);
   }
 
 
@@ -137,9 +120,7 @@ export class DataState {
     patchState({
       addresses: [...state.addresses, payload],
     });
-    
-    // Localstorage
-    this.updateLocalCartAddress([...state.addresses, payload]);
+  
   }
 
   @Action(DeleteAddress)
@@ -152,11 +133,6 @@ export class DataState {
     patchState({
       addresses: state.addresses.filter((address) => address.id !== payload.id),
     });
-
-    // Localstorage
-    this.updateLocalCartAddress(
-      state.addresses.filter((address) => address.id !== payload.id)
-    );
   }
 
   @Action(DeleteAllAddress)
@@ -166,9 +142,6 @@ export class DataState {
     patchState({
       addresses: [],
     });
-
-    // Localstorage
-    this.updateLocalCartAddress([]);
   }
 
 }

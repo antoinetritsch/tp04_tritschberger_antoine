@@ -1,8 +1,13 @@
-<div *ngIf="product.id != ''">
+<div style="width: 100%;margin-top: 20px;" id="item" *ngIf="product.id != ''">
     <h3>{{ product.name }} {{ product.price }}€</h3>
-    <p>{{ product.description }}</p>
-    <button (click)="AddToCart()">Ajouter au panier</button>
-    <a [routerLink] = "['/product/shop']" >Retour</a>
+    <div style="display: flex;flex-direction: column;align-items: center;">
+        <div>Description : {{ product.description }}</div>
+        <div style="margin:10px">
+            <button class="btnStyle" (click)="AddToCart()">Ajouter au panier</button>
+            <a class="btnStyle" [routerLink] = "['/product/shop']" >Retour</a>
+        </div>
+        
+    </div>
 </div>
 <div *ngIf="error">
     Erreur

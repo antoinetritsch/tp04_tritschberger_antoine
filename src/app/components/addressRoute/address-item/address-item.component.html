@@ -1,28 +1,10 @@
-<div *ngIf="address.id>0">
-    <div>
-      <h2>Adresse {{ address.city }}</h2>
-    </div>
-    <div>
-      <div>
-        <p>Street</p>
-        <p>{{ address.street }}</p>
-        <p>Zip code</p>
-        <p>{{ address.zip_code }}</p>
-      </div>
-      <div>
-        <p>City</p>
-        <p>{{ address.city }}</p>
-        <p>Country</p>
-        <p>{{ address.country }}</p>
-      </div>
-      <div>
-        <p>Additionnal info</p>
+<div id="item" *ngIf="address.id>0">
+      <h3>{{ address.city }} <span>{{address.zip_code}}</span></h3>
+      <div style="display: flex;flex-direction: column;">
+        <div>{{ address.street }}</div>
+        <div>{{ address.country }}</div>
         <p>{{ address.additionnalInfo }}</p>
+        <button class="btnStyle" (click)="removeAddress(address)">Delete</button>
       </div>
-    </div>
-  </div>
-  <div>
-    <button (click)="removeAddress(address)">
-      Delete
-    </button>
+        
   </div>
