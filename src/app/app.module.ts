@@ -19,13 +19,11 @@ import { HomeComponent } from './components/home/home.component';
 import { LeftmenuComponent } from './components/leftmenu/leftmenu.component';
 import { ShopItemComponent } from './components/shopRoute/shop-item/shop-item.component';
 import { CartItemComponent } from './components/shopRoute/cart-item/cart-item.component';
-import { SigninComponent } from './components/signin/signin.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'signin', component: SigninComponent },
   {
     path: 'address',
     loadChildren: () =>
@@ -57,8 +55,7 @@ const routes: Routes = [
     HomeComponent,
     LeftmenuComponent,
     ShopItemComponent,
-    CartItemComponent,
-    SigninComponent
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
